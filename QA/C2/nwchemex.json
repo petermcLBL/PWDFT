@@ -1,0 +1,14 @@
+{
+    "dbname": "nwchemex",
+    "foundtask": false,
+    "geometries": null,
+    "nwinput_cur": 1,
+    "nwinput_lines": [
+        ""
+    ],
+    "nwinput_nlines": 1,
+    "nwpw": null,
+    "permanent_dir": ".",
+    "psp_library_dir": "",
+    "scratch_dir": "."
+}

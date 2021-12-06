@@ -1,0 +1,571 @@
+/global/u1/c/canning/cori/FFTX/NWChem/QA/C2_steepest_descent/../../build/pwdft (NWChemEx) - Version 1.0
+
+============================== echo of input deck ==============================
+Title "Hellow Dolly"
+
+memory 1900 mb
+start c2-cpsd
+echo
+
+#psp_library_dir /home/ericpsps
+
+
+geometry noautosym noautoz center
+C 0 0 0    
+C 0 0 1.3  
+end
+
+nwpw
+   pseudopotentials
+   C library pspw_default
+   end
+   simulation_cell
+     SC 20.0
+   end
+   cutoff 5.0
+end
+task pspw steepest_descent
+
+nwpw
+   cutoff 20.0
+end
+task pspw steepest_descent
+================================================================================
+
+              NorthwestEx Computational Chemistry Package 1.0.0
+           --------------------------------------------------------
+
+                  Pacific Northwest National Laboratory
+                           Richland, WA 99354
+
+                         Copyright (c) 2020
+                  Pacific Northwest National Laboratory
+                       Battelle Memorial Institute
+
+        NWChemEx is an open-source computational chemistry package
+                   distributed under the terms of the
+                 Educational Community License (ECL) 2.0
+        A copy of the license is included with this distribution
+                         in the LICENSE.TXT file
+
+                             ACKNOWLEDGMENT
+                             --------------
+
+       This software and its documentation were developed at the
+       Pacific Northwest National Laboratory, a multiprogram
+       national laboratory, operated for the U.S. Department of Energy
+       by Battelle under Contract Number DE-AC05-76RL01830. Support
+       for this work was provided by the Department of Energy 
+       Office of Advanced Scientific Computing and the Office of Basic
+       Energy Sciences.
+
+       Job information
+       ---------------
+       program               = pwdft (NWChemEx)
+       build configured      = Sun Nov 28 14:21:54 2021
+       source                = /global/homes/c/canning/cori/FFTX/NWChem/Nwpw
+       version               = 1.0
+       default psp libraries = /global/homes/c/canning/cori/FFTX/NWChem/Nwpw/libraryps
+
+       date                  = Thu Dec  2 15:18:28 2021
+       nproc                 = 24
+       input                 = c2-sd.nw
+
+
+
+First rtdbstr={"current_task":"task pspw steepest_descent","dbname":"c2-cpsd","foundtask":true,"geometries":{"geometry":{"autosym":0,"autoz":0,"center":1,"charges":[6.0,6.0],"conv":1.88972598858,"coords":[0.0,0.0,-1.228321892577,0.0,0.0,1.228321892577],"masses":[12.0,12.0],"nion":2,"symbols":["C","C"],"velocities":[0.0,0.0,0.0,0.0,0.0,0.0]}},"nwinput_cur":24,"nwinput_lines":["Title \"Hellow Dolly\"","","memory 1900 mb","start c2-cpsd","echo","","","","","geometry noautosym noautoz center","C 0 0 0    ","C 0 0 1.3  ","end","","nwpw","   pseudopotentials","   C library pspw_default","   end","   simulation_cell","     SC 20.0","   end","   cutoff 5.0","end","task pspw steepest_descent","","nwpw","   cutoff 20.0","end","task pspw steepest_descent",""],"nwinput_nlines":30,"nwpw":{"cutoff":[5.0,10.0],"pseudopotentials":{"C":"pspw_default"},"simulation_cell":{"unita":[20.0,0.0,0.0,0.0,20.0,0.0,0.0,0.0,20.0]}},"permanent_dir":".","psp_library_dir":"","scratch_dir":".","title":"Hellow Dolly"}
+First task=5
+
+          *****************************************************
+          *                                                   *
+          *     Car-Parrinello calculation for molecules,     *
+          *       microclusters, liquids, and materials       *
+          *                                                   *
+          *     [     steepest descent minimization   ]       *
+          *     [          C++ implementation         ]       *
+          *                                                   *
+          *            version #7.00   09/20/18               *
+          *                                                   *
+          *    This code was developed by Eric J. Bylaska     *
+          *                                                   *
+          *****************************************************
+          >>> job started at       Thu Dec  2 15:18:28 2021 <<<
+
+ psp_library: /global/homes/c/canning/cori/FFTX/NWChem/Nwpw/libraryps
+
+ C library pspw_default
+
+ generating random psi from scratch
+ Warning - Gram-Schmidt being performed on psi2
+
+ writing formatted psp filename: ./C.vpp
+
+          ==============  summary of input  ==================
+
+ input psi filename: ./c2-cpsd.movecs
+
+ number of processors used: 24
+ processor grid           : 24 x1
+ parallel mapping         : 1d-slab
+ parallel mapping         : balanced
+
+ options:
+   ion motion           = no
+   boundary conditions  = periodic
+   electron spin        = restricted
+   exchange-correlation = LDA (Vosko et al) parameterization
+
+ elements involved in the cluster:
+     1 :    C   core charge:  4.0  lmax=2
+           comment : Parameterized (J.Phys.Chem., vol 100, page 6966) Hamman psp 
+           pseudopotential type            :   0
+           highest angular component       :   2
+           local potential used            :   2
+           number of non-local projections :   4
+           cutoff =    0.800   0.850   0.850
+
+ atom composition:
+   C : 2
+
+ initial ion positions (au):
+   1 C	(    0.00000    0.00000   -1.22832 ) - atomic mass = 12.000
+   2 C	(    0.00000    0.00000    1.22832 ) - atomic mass = 12.000
+
+ number of electrons: spin up=     4 (   4 per task) down=     4 (   4 per task)
+
+ supercell:
+      volume :    8000.00
+      lattice:    a1=<   20.000    0.000    0.000 >
+                  a2=<    0.000   20.000    0.000 >
+                  a3=<    0.000    0.000   20.000 >
+      reciprocal: b1=<    0.314    0.000    0.000 >
+                  b2=<    0.000    0.314    0.000 >
+                  b3=<    0.000    0.000    0.314 >
+      lattice:    a=      20.000 b=     20.000 c=      20.000
+                  alpha=  90.000 beta=  90.000 gamma=  90.000
+      density cutoff=  10.000 fft=   30 x   30 x   30  (    6027 waves      251 per task)
+      wavefnc cutoff=   5.000 fft=   30 x   30 x   30  (    2169 waves       90 per task)
+
+ ewald parameters:
+      energy cutoff=  10.000 fft=   30 x   30 x   30  (    6027 waves      252 per task)
+      Ewald summation: cut radius=    6.366 and   1
+                       Mandelung Wigner-Seitz=   1.76011888 (alpha=  2.83729748 rs=12.40700982)
+
+ technical parameters:
+      time step=        5.80  ficticious mass=  400000.00
+      tolerance=   1.000e-09 (energy)    1.000e-09 (density)    1.000e-04 (ion)
+      max iterations =       1000 (   10 inner   100 outer)
+
+
+
+     ========================== iteration ==========================
+          >>> iteration started at Thu Dec  2 15:18:28 2021  <<<
+     iter.             Energy       DeltaE     DeltaPsi     DeltaIon
+     ---------------------------------------------------------------
+        10   1.2945711623e+01  2.23202e-01  2.80348e-02  0.00000e+00
+        20   9.7572089717e+00 -5.49742e-02  2.05792e-02  0.00000e+00
+        30   7.3317799851e+00 -4.18177e-02  1.58045e-02  0.00000e+00
+        40   5.3845217647e+00 -3.35734e-02  1.39802e-02  0.00000e+00
+        50   3.6855999535e+00 -2.92918e-02  1.40022e-02  0.00000e+00
+        60   2.1083473746e+00 -2.71940e-02  1.43777e-02  0.00000e+00
+        70   6.2251791495e-01 -2.56177e-02  1.38993e-02  0.00000e+00
+        80  -7.4591104081e-01 -2.35936e-02  1.22269e-02  0.00000e+00
+        90  -1.9677421127e+00 -2.10661e-02  9.84176e-03  0.00000e+00
+       100  -3.0391026575e+00 -1.84717e-02  7.42461e-03  0.00000e+00
+       110  -3.9766016339e+00 -1.61638e-02  6.68800e-03  0.00000e+00
+       120  -4.8011624614e+00 -1.42166e-02  6.28906e-03  0.00000e+00
+       130  -5.5283185863e+00 -1.25372e-02  6.17238e-03  0.00000e+00
+       140  -6.1671245842e+00 -1.10139e-02  5.90595e-03  0.00000e+00
+       150  -6.7231701844e+00 -9.58699e-03  5.48152e-03  0.00000e+00
+       160  -7.2017382439e+00 -8.25117e-03  4.94081e-03  0.00000e+00
+       170  -7.6094268755e+00 -7.02911e-03  4.34591e-03  0.00000e+00
+       180  -7.9542470353e+00 -5.94518e-03  3.75380e-03  0.00000e+00
+       190  -8.2449083275e+00 -5.01140e-03  3.20378e-03  0.00000e+00
+       200  -8.4899758796e+00 -4.22530e-03  2.71626e-03  0.00000e+00
+       210  -8.6972598076e+00 -3.57386e-03  2.29727e-03  0.00000e+00
+       220  -8.8735126849e+00 -3.03884e-03  1.94408e-03  0.00000e+00
+       230  -9.0243673865e+00 -2.60094e-03  1.64965e-03  0.00000e+00
+       240  -9.1544165657e+00 -2.24223e-03  1.40553e-03  0.00000e+00
+       250  -9.2673548024e+00 -1.94721e-03  1.20341e-03  0.00000e+00
+       260  -9.3661345664e+00 -1.70310e-03  1.03586e-03  0.00000e+00
+       270  -9.4531111684e+00 -1.49960e-03  8.96523e-04  0.00000e+00
+       280  -9.5301669112e+00 -1.32855e-03  7.80162e-04  0.00000e+00
+       290  -9.5988126821e+00 -1.18355e-03  6.82502e-04  0.00000e+00
+       300  -9.6602688795e+00 -1.05959e-03  6.00091e-04  0.00000e+00
+       310  -9.7155288461e+00 -9.52758e-04  5.30158e-04  0.00000e+00
+       320  -9.7654081102e+00 -8.59987e-04  4.70477e-04  0.00000e+00
+       330  -9.8105824019e+00 -7.78867e-04  4.19261e-04  0.00000e+00
+       340  -9.8516169184e+00 -7.07492e-04  3.85844e-04  0.00000e+00
+       350  -9.8889888390e+00 -6.44343e-04  3.58991e-04  0.00000e+00
+       360  -9.9231046626e+00 -5.88204e-04  3.33955e-04  0.00000e+00
+       370  -9.9543135953e+00 -5.38085e-04  3.10633e-04  0.00000e+00
+       380  -9.9829179323e+00 -4.93178e-04  2.88928e-04  0.00000e+00
+       390  -1.0009181158e+01 -4.52814e-04  2.68749e-04  0.00000e+00
+       400  -1.0033334312e+01 -4.16434e-04  2.50010e-04  0.00000e+00
+       410  -1.0055581043e+01 -3.83564e-04  2.32625e-04  0.00000e+00
+       420  -1.0076101659e+01 -3.53804e-04  2.16510e-04  0.00000e+00
+       430  -1.0095056408e+01 -3.26806e-04  2.01586e-04  0.00000e+00
+       440  -1.0112588173e+01 -3.02272e-04  1.87772e-04  0.00000e+00
+       450  -1.0128824704e+01 -2.79940e-04  1.74991e-04  0.00000e+00
+       460  -1.0143880495e+01 -2.59583e-04  1.63171e-04  0.00000e+00
+       470  -1.0157858368e+01 -2.40998e-04  1.52240e-04  0.00000e+00
+       480  -1.0170850836e+01 -2.24008e-04  1.42132e-04  0.00000e+00
+       490  -1.0182941269e+01 -2.08456e-04  1.32785e-04  0.00000e+00
+       500  -1.0194204912e+01 -1.94201e-04  1.24139e-04  0.00000e+00
+       510  -1.0204709773e+01 -1.81118e-04  1.16140e-04  0.00000e+00
+       520  -1.0214517398e+01 -1.69097e-04  1.08736e-04  0.00000e+00
+       530  -1.0223683559e+01 -1.58037e-04  1.01879e-04  0.00000e+00
+       540  -1.0232258854e+01 -1.47850e-04  9.55260e-05  0.00000e+00
+       550  -1.0240289246e+01 -1.38455e-04  8.96363e-05  0.00000e+00
+       560  -1.0247816536e+01 -1.29781e-04  8.41726e-05  0.00000e+00
+       570  -1.0254878785e+01 -1.21763e-04  7.91006e-05  0.00000e+00
+       580  -1.0261510687e+01 -1.14343e-04  7.43889e-05  0.00000e+00
+       590  -1.0267743909e+01 -1.07469e-04  7.00086e-05  0.00000e+00
+       600  -1.0273607382e+01 -1.01094e-04  6.59334e-05  0.00000e+00
+       610  -1.0279127573e+01 -9.51757e-05  6.21390e-05  0.00000e+00
+       620  -1.0284328722e+01 -8.96750e-05  5.86035e-05  0.00000e+00
+       630  -1.0289233051e+01 -8.45574e-05  5.53064e-05  0.00000e+00
+       640  -1.0293860962e+01 -7.97916e-05  5.22294e-05  0.00000e+00
+       650  -1.0298231199e+01 -7.53489e-05  4.93555e-05  0.00000e+00
+       660  -1.0302361008e+01 -7.12036e-05  4.66692e-05  0.00000e+00
+       670  -1.0306266274e+01 -6.73322e-05  4.41562e-05  0.00000e+00
+       680  -1.0309961640e+01 -6.37132e-05  4.18037e-05  0.00000e+00
+       690  -1.0313460622e+01 -6.03273e-05  3.95997e-05  0.00000e+00
+       700  -1.0316775711e+01 -5.71567e-05  3.75333e-05  0.00000e+00
+       710  -1.0319918458e+01 -5.41853e-05  3.55945e-05  0.00000e+00
+       720  -1.0322899558e+01 -5.13983e-05  3.37741e-05  0.00000e+00
+       730  -1.0325728926e+01 -4.87822e-05  3.20637e-05  0.00000e+00
+       740  -1.0328415758e+01 -4.63247e-05  3.04556e-05  0.00000e+00
+       750  -1.0330968597e+01 -4.40145e-05  2.89425e-05  0.00000e+00
+       760  -1.0333395381e+01 -4.18411e-05  2.75180e-05  0.00000e+00
+       770  -1.0335703500e+01 -3.97952e-05  2.61761e-05  0.00000e+00
+       780  -1.0337899833e+01 -3.78678e-05  2.49111e-05  0.00000e+00
+       790  -1.0339990795e+01 -3.60511e-05  2.37179e-05  0.00000e+00
+       800  -1.0341982369e+01 -3.43375e-05  2.25918e-05  0.00000e+00
+       810  -1.0343880144e+01 -3.27203e-05  2.15285e-05  0.00000e+00
+       820  -1.0345689341e+01 -3.11931e-05  2.05238e-05  0.00000e+00
+       830  -1.0347414846e+01 -2.97501e-05  1.95740e-05  0.00000e+00
+       840  -1.0349061231e+01 -2.83860e-05  1.86758e-05  0.00000e+00
+       850  -1.0350632781e+01 -2.70957e-05  1.78257e-05  0.00000e+00
+       860  -1.0352133513e+01 -2.58747e-05  1.70210e-05  0.00000e+00
+       870  -1.0353567195e+01 -2.47187e-05  1.62587e-05  0.00000e+00
+       880  -1.0354937366e+01 -2.36236e-05  1.55364e-05  0.00000e+00
+       890  -1.0356247352e+01 -2.25860e-05  1.48517e-05  0.00000e+00
+       900  -1.0357500280e+01 -2.16022e-05  1.42023e-05  0.00000e+00
+       910  -1.0358699092e+01 -2.06692e-05  1.35862e-05  0.00000e+00
+       920  -1.0359846558e+01 -1.97839e-05  1.30013e-05  0.00000e+00
+       930  -1.0360945289e+01 -1.89436e-05  1.24461e-05  0.00000e+00
+       940  -1.0361997745e+01 -1.81458e-05  1.19187e-05  0.00000e+00
+       950  -1.0363006247e+01 -1.73880e-05  1.14175e-05  0.00000e+00
+       960  -1.0363972986e+01 -1.66679e-05  1.09412e-05  0.00000e+00
+       970  -1.0364900032e+01 -1.59835e-05  1.04884e-05  0.00000e+00
+       980  -1.0365789340e+01 -1.53329e-05  1.00577e-05  0.00000e+00
+       990  -1.0366642757e+01 -1.47141e-05  9.64800e-06  0.00000e+00
+      1000  -1.0367462034e+01 -1.41255e-05  9.25813e-06  0.00000e+00
+          *** arrived at the Maximum iteration.   terminated ***
+          >>> iteration ended at   Thu Dec  2 15:18:29 2021  <<<
+
+
+          =============  summary of results  =================
+
+ final ion positions (au):
+   1 C	(    0.00000    0.00000   -1.22832 ) - atomic mass = 12.000
+   2 C	(    0.00000    0.00000    1.22832 ) - atomic mass = 12.000
+
+
+ total     energy    :   -1.0367462034e+01 (   -5.18373e+00 /ion)
+ total orbital energy:   -3.5140036138e+00 (   -8.78501e-01 /electron)
+ hartree energy      :    9.7477905312e+00 (    2.43695e+00 /electron)
+ exc-corr energy     :   -2.9144876158e+00 (   -7.28622e-01 /electron)
+ ion-ion energy      :    1.9991223087e+00 (    9.99561e-01 /ion)
+
+ K.S. kinetic energy :    5.4420178766e+00 (    1.36050e+00 /electron)
+ K.S. V_l energy     :   -2.5942805719e+01 (   -6.48570e+00 /electron)
+ K.S. V_nl energy    :    1.3009005849e+00 (    3.25225e-01 /electron)
+ K.S. V_Hart energy  :    1.9495581062e+01 (    4.87390e+00 /electron)
+ K.S. V_xc energy    :   -3.8096974183e+00 (   -9.52424e-01 /electron)
+ Viral Coefficient   :   -1.6457170288e+00
+
+ orbital energies:
+    -2.4290791e-01 (  -6.610eV)
+    -2.8273833e-01 (  -7.694eV)
+    -4.1550652e-01 ( -11.307eV)
+    -8.1584905e-01 ( -22.201eV)
+
+ output psi to filename: ./c2-cpsd.movecs
+
+ -----------------
+ cputime in seconds
+ prologue    : 4.463000e-02
+ main loop   : 7.351900e-01
+ epilogue    : 4.205000e-03
+ total       : 7.840250e-01
+ cputime/step: 7.351900e-04
+
+ Time spent doing      total        step             percent
+ total time            9.162521e-01 9.162521e-04     100.00%
+ total FFT time        5.480576e-01 5.480576e-04      59.82%
+ lagrange multipliers  1.860863e-02 1.860863e-05       2.03%
+ exchange correlation  7.403967e-02 7.403967e-05       8.08%
+ local potentials      4.015320e-04 4.015320e-07       0.04%
+ non-local potentials  1.600695e-02 1.600695e-05       1.75%
+ ffm_dgemm             1.447907e-02 1.447907e-05       1.58%
+ fmf_dgemm             9.590020e-04 9.590020e-07       0.10%
+ m_diagonalize         5.333681e-03 5.333681e-06       0.58%
+ mmm_multiply          2.256635e-03 2.256635e-06       0.25%
+
+ >>> job completed at     Thu Dec  2 15:18:29 2021 <<<
+
+Next rtdbstr={"current_task":"task pspw steepest_descent","dbname":"c2-cpsd","foundtask":true,"geometries":{"geometry":{"autosym":0,"autoz":0,"center":1,"charges":[6.0,6.0],"conv":1.88972598858,"coords":[0.0,0.0,-1.228321892577,0.0,0.0,1.228321892577],"masses":[12.0,12.0],"nion":2,"symbols":["C","C"],"velocities":[0.0,0.0,0.0,0.0,0.0,0.0]}},"geometry":null,"nwinput_cur":29,"nwinput_lines":["Title \"Hellow Dolly\"","","memory 1900 mb","start c2-cpsd","echo","","","","","geometry noautosym noautoz center","C 0 0 0    ","C 0 0 1.3  ","end","","nwpw","   pseudopotentials","   C library pspw_default","   end","   simulation_cell","     SC 20.0","   end","   cutoff 5.0","end","task pspw steepest_descent","","nwpw","   cutoff 20.0","end","task pspw steepest_descent",""],"nwinput_nlines":30,"nwpw":{"cutoff":[20.0,40.0],"pseudopotentials":{"C":"pspw_default"},"simulation_cell":{"unita":[20.0,0.0,0.0,0.0,20.0,0.0,0.0,0.0,20.0]}},"permanent_dir":".","psp_library_dir":"","pspw":{"energies":[-10.367462033781639,-3.514003613753309,9.747790531207277,-2.9144876158249216,1.9991223087353045,5.442017876581921,-25.942805719411172,1.3009005849299506,19.495581062414555,-3.8096974182685637,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"energy":-10.367462033781639},"scratch_dir":".","title":"Hellow Dolly"}
+Next task =5
+
+          *****************************************************
+          *                                                   *
+          *     Car-Parrinello calculation for molecules,     *
+          *       microclusters, liquids, and materials       *
+          *                                                   *
+          *     [     steepest descent minimization   ]       *
+          *     [          C++ implementation         ]       *
+          *                                                   *
+          *            version #7.00   09/20/18               *
+          *                                                   *
+          *    This code was developed by Eric J. Bylaska     *
+          *                                                   *
+          *****************************************************
+          >>> job started at       Thu Dec  2 15:18:29 2021 <<<
+
+ psp_library: /global/homes/c/canning/cori/FFTX/NWChem/Nwpw/libraryps
+
+ C library pspw_default
+
+ psi grids are being converted: 
+ -----------------------------: 
+ converting .... psi:1 spin:1
+ converting .... psi:2 spin:1
+ converting .... psi:3 spin:1
+ converting .... psi:4 spin:1
+
+ input psi exists, reading from file: ./c2-cpsd.movecs
+
+ writing formatted psp filename: ./C.vpp
+
+          ==============  summary of input  ==================
+
+ input psi filename: ./c2-cpsd.movecs
+
+ number of processors used: 24
+ processor grid           : 24 x1
+ parallel mapping         : 1d-slab
+ parallel mapping         : balanced
+
+ options:
+   ion motion           = no
+   boundary conditions  = periodic
+   electron spin        = restricted
+   exchange-correlation = LDA (Vosko et al) parameterization
+
+ elements involved in the cluster:
+     1 :    C   core charge:  4.0  lmax=2
+           comment : Parameterized (J.Phys.Chem., vol 100, page 6966) Hamman psp 
+           pseudopotential type            :   0
+           highest angular component       :   2
+           local potential used            :   2
+           number of non-local projections :   4
+           cutoff =    0.800   0.850   0.850
+
+ atom composition:
+   C : 2
+
+ initial ion positions (au):
+   1 C	(    0.00000    0.00000   -1.22832 ) - atomic mass = 12.000
+   2 C	(    0.00000    0.00000    1.22832 ) - atomic mass = 12.000
+
+ number of electrons: spin up=     4 (   4 per task) down=     4 (   4 per task)
+
+ supercell:
+      volume :    8000.00
+      lattice:    a1=<   20.000    0.000    0.000 >
+                  a2=<    0.000   20.000    0.000 >
+                  a3=<    0.000    0.000   20.000 >
+      reciprocal: b1=<    0.314    0.000    0.000 >
+                  b2=<    0.000    0.314    0.000 >
+                  b3=<    0.000    0.000    0.314 >
+      lattice:    a=      20.000 b=     20.000 c=      20.000
+                  alpha=  90.000 beta=  90.000 gamma=  90.000
+      density cutoff=  40.000 fft=   60 x   60 x   60  (   48485 waves     2020 per task)
+      wavefnc cutoff=  20.000 fft=   60 x   60 x   60  (   17133 waves      734 per task)
+
+ ewald parameters:
+      energy cutoff=  40.000 fft=   60 x   60 x   60  (   48485 waves     2021 per task)
+      Ewald summation: cut radius=    6.366 and   1
+                       Mandelung Wigner-Seitz=   1.76011888 (alpha=  2.83729748 rs=12.40700982)
+
+ technical parameters:
+      time step=        5.80  ficticious mass=  400000.00
+      tolerance=   1.000e-09 (energy)    1.000e-09 (density)    1.000e-04 (ion)
+      max iterations =       1000 (   10 inner   100 outer)
+
+
+
+     ========================== iteration ==========================
+          >>> iteration started at Thu Dec  2 15:18:30 2021  <<<
+     iter.             Energy       DeltaE     DeltaPsi     DeltaIon
+     ---------------------------------------------------------------
+        10   1.4139522002e+00  2.43785e-02  7.62550e-03  0.00000e+00
+        20   5.5671034062e-01 -1.47800e-02  5.39974e-03  0.00000e+00
+        30  -6.4072977919e-02 -1.07032e-02  4.09750e-03  0.00000e+00
+        40  -5.4668236929e-01 -8.32085e-03  3.23633e-03  0.00000e+00
+        50  -9.3684904277e-01 -6.72701e-03  2.62561e-03  0.00000e+00
+        60  -1.2601650726e+00 -5.57441e-03  2.17360e-03  0.00000e+00
+        70  -1.5328387543e+00 -4.70127e-03  1.82928e-03  0.00000e+00
+        80  -1.7659672512e+00 -4.01946e-03  1.56131e-03  0.00000e+00
+        90  -1.9675340691e+00 -3.47529e-03  1.34910e-03  0.00000e+00
+       100  -2.1434778013e+00 -3.03351e-03  1.17855e-03  0.00000e+00
+       110  -2.2983241491e+00 -2.66976e-03  1.03971e-03  0.00000e+00
+       120  -2.4355863796e+00 -2.36659e-03  9.25377e-04  0.00000e+00
+       130  -2.5580334355e+00 -2.11116e-03  8.30220e-04  0.00000e+00
+       140  -2.6678760601e+00 -1.89384e-03  7.50266e-04  0.00000e+00
+       150  -2.7668998034e+00 -1.70731e-03  6.82493e-04  0.00000e+00
+       160  -2.8565620689e+00 -1.54590e-03  6.24571e-04  0.00000e+00
+       170  -2.9380640178e+00 -1.40521e-03  5.74688e-04  0.00000e+00
+       180  -3.0124046541e+00 -1.28174e-03  5.31410e-04  0.00000e+00
+       190  -3.0804220123e+00 -1.17271e-03  4.93600e-04  0.00000e+00
+       200  -3.1428248698e+00 -1.07591e-03  4.60339e-04  0.00000e+00
+       210  -3.2002174138e+00 -9.89527e-04  4.30886e-04  0.00000e+00
+       220  -3.2531186035e+00 -9.12089e-04  4.04634e-04  0.00000e+00
+       230  -3.3019774893e+00 -8.42395e-04  3.81087e-04  0.00000e+00
+       240  -3.3471854173e+00 -7.79447e-04  3.59836e-04  0.00000e+00
+       250  -3.3890858084e+00 -7.22421e-04  3.40543e-04  0.00000e+00
+       260  -3.4279820336e+00 -6.70625e-04  3.22931e-04  0.00000e+00
+       270  -3.4641437828e+00 -6.23478e-04  3.06766e-04  0.00000e+00
+       280  -3.4978122334e+00 -5.80491e-04  2.91858e-04  0.00000e+00
+       290  -3.5292042573e+00 -5.41242e-04  2.78048e-04  0.00000e+00
+       300  -3.5585158551e+00 -5.05372e-04  2.65203e-04  0.00000e+00
+       310  -3.5859249667e+00 -4.72571e-04  2.53214e-04  0.00000e+00
+       320  -3.6115937774e+00 -4.42566e-04  2.41990e-04  0.00000e+00
+       330  -3.6356706169e+00 -4.15118e-04  2.31454e-04  0.00000e+00
+       340  -3.6582915275e+00 -3.90016e-04  2.21543e-04  0.00000e+00
+       350  -3.6795815670e+00 -3.67070e-04  2.12205e-04  0.00000e+00
+       360  -3.6996558949e+00 -3.46109e-04  2.03392e-04  0.00000e+00
+       370  -3.7186206862e+00 -3.26979e-04  1.95067e-04  0.00000e+00
+       380  -3.7365739050e+00 -3.09538e-04  1.87196e-04  0.00000e+00
+       390  -3.7536059663e+00 -2.93656e-04  1.79749e-04  0.00000e+00
+       400  -3.7698003076e+00 -2.79213e-04  1.72702e-04  0.00000e+00
+       410  -3.7852338880e+00 -2.66096e-04  1.66030e-04  0.00000e+00
+       420  -3.7999776292e+00 -2.54202e-04  1.59712e-04  0.00000e+00
+       430  -3.8140968103e+00 -2.43434e-04  1.53728e-04  0.00000e+00
+       440  -3.8276514236e+00 -2.33700e-04  1.48060e-04  0.00000e+00
+       450  -3.8406965005e+00 -2.24915e-04  1.42690e-04  0.00000e+00
+       460  -3.8532824111e+00 -2.16998e-04  1.37602e-04  0.00000e+00
+       470  -3.8654551430e+00 -2.09875e-04  1.32780e-04  0.00000e+00
+       480  -3.8772565627e+00 -2.03473e-04  1.28208e-04  0.00000e+00
+       490  -3.8887246605e+00 -1.97726e-04  1.23872e-04  0.00000e+00
+       500  -3.8998937835e+00 -1.92571e-04  1.19756e-04  0.00000e+00
+       510  -3.9107948560e+00 -1.87950e-04  1.15849e-04  0.00000e+00
+       520  -3.9214555903e+00 -1.83806e-04  1.12135e-04  0.00000e+00
+       530  -3.9319006873e+00 -1.80088e-04  1.08602e-04  0.00000e+00
+       540  -3.9421520300e+00 -1.76747e-04  1.05238e-04  0.00000e+00
+       550  -3.9522288675e+00 -1.73739e-04  1.02032e-04  0.00000e+00
+       560  -3.9621479939e+00 -1.71019e-04  9.89705e-05  0.00000e+00
+       570  -3.9719239187e+00 -1.68550e-04  9.88984e-05  0.00000e+00
+       580  -3.9815690325e+00 -1.66295e-04  1.00618e-04  0.00000e+00
+       590  -3.9910937661e+00 -1.64220e-04  1.02297e-04  0.00000e+00
+       600  -4.0005067445e+00 -1.62293e-04  1.03916e-04  0.00000e+00
+       610  -4.0098149353e+00 -1.60486e-04  1.05458e-04  0.00000e+00
+       620  -4.0190237927e+00 -1.58773e-04  1.06906e-04  0.00000e+00
+       630  -4.0281373957e+00 -1.57131e-04  1.08247e-04  0.00000e+00
+       640  -4.0371585823e+00 -1.55538e-04  1.09467e-04  0.00000e+00
+       650  -4.0460890779e+00 -1.53974e-04  1.10555e-04  0.00000e+00
+       660  -4.0549296197e+00 -1.52423e-04  1.11503e-04  0.00000e+00
+       670  -4.0636800750e+00 -1.50870e-04  1.12302e-04  0.00000e+00
+       680  -4.0723395558e+00 -1.49301e-04  1.12948e-04  0.00000e+00
+       690  -4.0809065265e+00 -1.47706e-04  1.13434e-04  0.00000e+00
+       700  -4.0893789075e+00 -1.46076e-04  1.13758e-04  0.00000e+00
+       710  -4.0977541720e+00 -1.44401e-04  1.13919e-04  0.00000e+00
+       720  -4.1060294381e+00 -1.42677e-04  1.13915e-04  0.00000e+00
+       730  -4.1142015542e+00 -1.40899e-04  1.13749e-04  0.00000e+00
+       740  -4.1222671781e+00 -1.39062e-04  1.13422e-04  0.00000e+00
+       750  -4.1302228511e+00 -1.37167e-04  1.12937e-04  0.00000e+00
+       760  -4.1380650642e+00 -1.35211e-04  1.12299e-04  0.00000e+00
+       770  -4.1457903196e+00 -1.33194e-04  1.11512e-04  0.00000e+00
+       780  -4.1533951843e+00 -1.31118e-04  1.10583e-04  0.00000e+00
+       790  -4.1608763393e+00 -1.28985e-04  1.09518e-04  0.00000e+00
+       800  -4.1682306211e+00 -1.26798e-04  1.08323e-04  0.00000e+00
+       810  -4.1754550582e+00 -1.24559e-04  1.07008e-04  0.00000e+00
+       820  -4.1825469016e+00 -1.22273e-04  1.05579e-04  0.00000e+00
+       830  -4.1895036500e+00 -1.19944e-04  1.04045e-04  0.00000e+00
+       840  -4.1963230696e+00 -1.17576e-04  1.02414e-04  0.00000e+00
+       850  -4.2030032093e+00 -1.15175e-04  1.00696e-04  0.00000e+00
+       860  -4.2095424110e+00 -1.12745e-04  9.88979e-05  0.00000e+00
+       870  -4.2159393163e+00 -1.10291e-04  9.70293e-05  0.00000e+00
+       880  -4.2221928686e+00 -1.07820e-04  9.50984e-05  0.00000e+00
+       890  -4.2283023130e+00 -1.05335e-04  9.31135e-05  0.00000e+00
+       900  -4.2342671918e+00 -1.02843e-04  9.10828e-05  0.00000e+00
+       910  -4.2400873384e+00 -1.00347e-04  8.90141e-05  0.00000e+00
+       920  -4.2457628684e+00 -9.78540e-05  8.69149e-05  0.00000e+00
+       930  -4.2512941690e+00 -9.53673e-05  8.47926e-05  0.00000e+00
+       940  -4.2566818863e+00 -9.28917e-05  8.26538e-05  0.00000e+00
+       950  -4.2619269122e+00 -9.04315e-05  8.05052e-05  0.00000e+00
+       960  -4.2670303695e+00 -8.79906e-05  7.83527e-05  0.00000e+00
+       970  -4.2719935965e+00 -8.55729e-05  7.62022e-05  0.00000e+00
+       980  -4.2768181316e+00 -8.31816e-05  7.40588e-05  0.00000e+00
+       990  -4.2815056966e+00 -8.08201e-05  7.19275e-05  0.00000e+00
+      1000  -4.2860581812e+00 -7.84911e-05  6.98127e-05  0.00000e+00
+          *** arrived at the Maximum iteration.   terminated ***
+          >>> iteration ended at   Thu Dec  2 15:18:32 2021  <<<
+
+
+          =============  summary of results  =================
+
+ final ion positions (au):
+   1 C	(    0.00000    0.00000   -1.22832 ) - atomic mass = 12.000
+   2 C	(    0.00000    0.00000    1.22832 ) - atomic mass = 12.000
+
+
+ total     energy    :   -4.2860581812e+00 (   -2.14303e+00 /ion)
+ total orbital energy:   -2.9377515312e+00 (   -7.34438e-01 /electron)
+ hartree energy      :    3.9717940244e+00 (    9.92949e-01 /electron)
+ exc-corr energy     :   -2.0527157391e+00 (   -5.13179e-01 /electron)
+ ion-ion energy      :    1.9991223087e+00 (    9.99561e-01 /ion)
+
+ K.S. kinetic energy :    3.1643216057e+00 (    7.91080e-01 /electron)
+ K.S. V_l energy     :   -1.1742467158e+01 (   -2.93562e+00 /electron)
+ K.S. V_nl energy    :    3.7377152397e-01 (    9.34429e-02 /electron)
+ K.S. V_Hart energy  :    7.9435880488e+00 (    1.98590e+00 /electron)
+ K.S. V_xc energy    :   -2.6770808048e+00 (   -6.69270e-01 /electron)
+ Viral Coefficient   :   -1.9284349539e+00
+
+ orbital energies:
+    -2.1775408e-01 (  -5.925eV)
+    -2.4440798e-01 (  -6.651eV)
+    -4.3984650e-01 ( -11.969eV)
+    -5.6686721e-01 ( -15.425eV)
+
+ output psi to filename: ./c2-cpsd.movecs
+
+ -----------------
+ cputime in seconds
+ prologue    : 5.971100e-02
+ main loop   : 2.580952e+00
+ epilogue    : 9.947000e-03
+ total       : 2.650610e+00
+ cputime/step: 2.580952e-03
+
+ Time spent doing      total        step             percent
+ total time            3.926475e+00 3.926475e-03     100.00%
+ total FFT time        2.279253e+00 2.279253e-03      58.05%
+ lagrange multipliers  5.102483e-02 5.102483e-05       1.30%
+ exchange correlation  4.990029e-01 4.990029e-04      12.71%
+ local potentials      3.564702e-03 3.564702e-06       0.09%
+ non-local potentials  9.145892e-02 9.145892e-05       2.33%
+ ffm_dgemm             3.614356e-02 3.614356e-05       0.92%
+ fmf_dgemm             8.882212e-03 8.882212e-06       0.23%
+ m_diagonalize         5.345330e-03 5.345330e-06       0.14%
+ mmm_multiply          4.414494e-03 4.414494e-06       0.11%
+
+ >>> job completed at     Thu Dec  2 15:18:32 2021 <<<
+
+Next rtdbstr={"current_task":"task pspw steepest_descent","dbname":"c2-cpsd","foundtask":false,"geometries":{"geometry":{"autosym":0,"autoz":0,"center":1,"charges":[6.0,6.0],"conv":1.88972598858,"coords":[0.0,0.0,-1.228321892577,0.0,0.0,1.228321892577],"masses":[12.0,12.0],"nion":2,"symbols":["C","C"],"velocities":[0.0,0.0,0.0,0.0,0.0,0.0]}},"geometry":null,"nwinput_cur":30,"nwinput_lines":["Title \"Hellow Dolly\"","","memory 1900 mb","start c2-cpsd","echo","","","","","geometry noautosym noautoz center","C 0 0 0    ","C 0 0 1.3  ","end","","nwpw","   pseudopotentials","   C library pspw_default","   end","   simulation_cell","     SC 20.0","   end","   cutoff 5.0","end","task pspw steepest_descent","","nwpw","   cutoff 20.0","end","task pspw steepest_descent",""],"nwinput_nlines":30,"nwpw":{"cutoff":[20.0,40.0],"pseudopotentials":{"C":"pspw_default"},"simulation_cell":{"unita":[20.0,0.0,0.0,0.0,20.0,0.0,0.0,0.0,20.0]}},"permanent_dir":".","psp_library_dir":"","pspw":{"energies":[-4.286058181219548,-2.9377515312385305,3.9717940244181964,-2.052715739121353,1.9991223087353043,3.164321605732243,-11.742467157998842,0.3737715239728956,7.943588048836393,-2.677080804823229,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"energy":-4.286058181219548},"scratch_dir":".","title":"Hellow Dolly"}
+Next task =0
+
+writing rtdbjson = ./c2-cpsd.json
